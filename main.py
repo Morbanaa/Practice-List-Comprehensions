@@ -112,3 +112,94 @@ items = [
     if player["level"] > 10 and data["value"] > 100
 ]
 print(f"Items over 100 from level > 10: {items}")
+
+# Challange Nine
+temperatures = [12, 25, 31, 8, 19, 35, 4, 28]
+temp_list = [
+    "Hot" if temp > 25
+    else "Cold" if temp < 10
+    else "Normal"
+    for temp in temperatures
+]
+print(f"Temp as string: {temp_list}")
+
+# Challange Ten
+names = ["Sora", "Fenrir", "Silvara", "Tarhun"]
+levels = [15, 8, 20, 25]
+data = zip(names,levels)
+name_level = [
+    f"{name}: Level: {level}"
+    for name,level in data
+]
+print(f"Name and Level: {name_level}")
+
+# Challange Eleven
+items = [
+    "Sword", "Potion", "Sword", "Shield",
+    "Potion", "Bow", "Axe", "Bow"
+]
+unique_items = [
+    item
+    for index, item in enumerate(items)
+    if item not in items[:index]
+]
+print(f"Unique Items: {unique_items}")
+
+# Challenge 12
+dungeon = [
+    ["#", " ", "G", " "],
+    ["T", " ", "#", "G"],
+    [" ", "G", " ", " "],
+    ["#", " ", "T", " "]
+]
+cords = [
+    (iy,ix)
+    for iy, y in enumerate(dungeon)
+    for ix, x in enumerate(y)
+    if x == "G" or x == "T"
+]
+print(f"Goblin/Treasure Cords: {cords}")
+
+# Challange 13
+players = [
+    {
+        "name": "Sora",
+        "stats": {"strength": 80, "speed": 95}
+    },
+    {
+        "name": "Fenrir",
+        "stats": {"strength": 95, "speed": 60}
+    },
+    {
+        "name": "Silvara",
+        "stats": {"strength": 75, "speed": 90}
+    },
+    {
+        "name": "Tarhun",
+        "stats": {"strength": 90, "speed": 85}
+    }
+]
+player_list = [
+    player["name"]
+    for player in players
+    if (player["stats"]["strength"] + player["stats"]["speed"]) >= 170
+]
+print(f"Players over 170: {player_list}")
+
+# Challange 14
+inventory = [
+    {"name": "Iron Sword", "value": 80},
+    {"name": "Diamond", "value": 500},
+    {"name": "Potion", "value": 15},
+    {"name": "Magic Staff", "value": 250},
+    {"name": "Shield", "value": 100}
+]
+sorted_list = [
+    item["name"]
+    for item in sorted(
+        inventory,
+        key=lambda item: item["value"],
+        reverse=True
+    )
+]
+print(f"High to low: {sorted_list}")
